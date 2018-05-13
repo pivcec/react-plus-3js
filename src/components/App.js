@@ -11,12 +11,12 @@ class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      cameraPositionZ: 1,
-      boxGeometryX: 0.2,
-      boxGeometryY: 0.2,
-      boxGeometryZ: 0.2,
-      meshRotationX: 0.02,
-      meshRotationY: 0.02,
+      cameraPositionZ: 0.5,
+      boxGeometryX: 0.5,
+      boxGeometryY: 0.5,
+      boxGeometryZ: 0.5,
+      meshRotationX: 0.01,
+      meshRotationY: 0.01,
     };
   }
 
