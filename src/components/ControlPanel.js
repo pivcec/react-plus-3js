@@ -2,12 +2,27 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ControlPanelContent = styled.div`
+  display: flex;
   flex-grow: 1;
   flex-basis: 0;
+  flex-direction: column;
   border: 1px solid #000000;
-  display: inline-block;
   padding: 1em;
   font-size: 10px;
+  align-content: center;
+`;
+
+const Title = styled.div`
+  text-align: center;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+`;
+
+const Button = styled.div`
+  flex: 50%;
+  text-align: center;
 `;
 
 class ControlPanel extends Component {
@@ -20,23 +35,31 @@ class ControlPanel extends Component {
     } = this.props;
     return (
       <ControlPanelContent>
-        {`${propertyToChange} = ${currentValueOfPropertyToChange}`}
-        <div onClick={() => handlePropertyChange(
-          'add',
-          propertyToChange,
-          currentValueOfPropertyToChange,
-          amountToChangePropertyBy,
-        )}>
-          +
-        </div>
-        <div onClick={() => handlePropertyChange(
-          'subtract',
-          propertyToChange,
-          currentValueOfPropertyToChange,
-          amountToChangePropertyBy,
-        )}>
-          -
-        </div>
+        <Title>
+          {`${propertyToChange} = ${currentValueOfPropertyToChange}`}
+        </Title>
+        <ButtonContainer>
+          <Button
+            onClick={() => handlePropertyChange(
+              'add',
+              propertyToChange,
+              currentValueOfPropertyToChange,
+              amountToChangePropertyBy,
+            )}
+          >
+            +
+          </Button>
+          <Button
+            onClick={() => handlePropertyChange(
+              'subtract',
+              propertyToChange,
+              currentValueOfPropertyToChange,
+              amountToChangePropertyBy,
+            )}
+          >
+            -
+          </Button>
+        </ButtonContainer>
       </ControlPanelContent>
     );
   }
