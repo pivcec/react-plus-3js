@@ -1,8 +1,14 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
 import * as THREE from "three";
 
-var camera, scene, renderer;
-var geometry, material, mesh;
+let camera, scene, renderer;
+let geometry, material, mesh;
+
+const Scene = styled.div`
+  text-align: center;
+  margin: 1em;
+`;
 
 class Animation extends Component {
   componentDidMount() {
@@ -13,7 +19,7 @@ class Animation extends Component {
   init = () => {
     camera = new THREE.PerspectiveCamera(
       70,
-      window.innerWidth / window.innerHeight,
+      600 / 400,
       0.01,
       10
     );
@@ -28,14 +34,14 @@ class Animation extends Component {
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
     renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    renderer.setSize(600, 400);
+    document.getElementsByClassName('scene')[0].appendChild(renderer.domElement);
   };
 
   animate = () => {
     requestAnimationFrame(this.animate);
     mesh.rotation.x += this.props.meshRotationX;
-    mesh.rotation.y += this.props.meshRotationY;   
+    mesh.rotation.y += this.props.meshRotationY;
     camera.position.z = this.props.cameraPositionZ;
     mesh.scale.x = this.props.boxGeometryX;
     mesh.scale.y = this.props.boxGeometryY;
@@ -44,7 +50,7 @@ class Animation extends Component {
   };
 
   render() {
-    return <div />;
+    return <Scene className="scene"/>;
   }
 }
 

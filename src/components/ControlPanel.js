@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const ControlPanelContent= styled.div`
+const ControlPanelContent = styled.div`
   flex-grow: 1;
   flex-basis: 0;
   border: 1px solid #000000;
   display: inline-block;
   padding: 1em;
-  font-size: 10px;  
+  font-size: 10px;
 `;
 
 class ControlPanel extends Component {
