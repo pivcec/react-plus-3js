@@ -23,6 +23,7 @@ const ButtonContainer = styled.div`
 const Button = styled.div`
   flex: 50%;
   text-align: center;
+  font-size: 2em;
 `;
 
 class ControlPanel extends Component {
